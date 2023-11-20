@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        table, thead, th, tr, tbody, td{
+            border: 3px solid black;
+            border-collapse: collapse;
+            padding: 10px 20px;
+        }
+
+        table{
+            margin: auto;
+        }
+
+        #wrap{
+            width: 100%;
+            height: 80vh;
+            background-color: pink;
+            padding: 50px;
+            margin: auto;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #wrap button{
+            padding: 8px 15px;
+            border-radius: 10px;
+            border: 0;
+            margin: 20px;
+            color: blue;
+        }
+
+        #wrap button:hover{
+            background-color: rgba(0, 255, 255, 0.585);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+            <button onclick="dispUser()">All Users</button>
+            <button onclick="PaidUser()">Paid</button>
+            <button onclick="notpaiduser()">Not Paid</button>
+
+
+        <table>
+            <thead>
+                <th>Names</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Paid</th>
+            </thead>
+            <tbody id="dispContent">
+
+            </tbody>
+        </table>
+
+    </div>
+
+    
+</body>
+<script>
+    let user = [
+        
+    {   name : "Adebayo Adeniyi",
+        password : "156456",
+        gender: "Female",
+        email: "olasubomiceliat@gmailcom",
+        paid: true
+    },
+
+    {   name : "Banjo Love",
+        password : "455432",
+        gender: "Female",
+        email: "banjo@gmailcom",
+        paid: false
+    }, 
+    {   name : "Celicial John",
+        password : "789456",
+        gender: "Male",
+        email: "celicial@gmailcom",
+        paid: false
+    },
+    {   name : "Debayo Adeniyi",
+        password : "876090",
+        gender: "Female",
+        email: "olasubomiceliat@gmailcom",
+        paid: true
+    },
+    {   name : "Ebenezer John",
+        password : "123456",
+        gender: "Female",
+        email: "johnebenezer@gmailcom",
+        paid: true
+    },
+    {   name : "Femi Niyi",
+        password : "123456",
+        gender: "Female",
+        email: "olasubomiceliat@gmailcom",
+        paid: true
+    },
+]
+
+    let {name, password, gender, email, paid} = user
+
+    function dispUser(){
+        dispContent.innerHTML = ""
+        for (let i = 0; i< user.length; i++){
+            const dan = user[i];
+            dispContent.innerHTML += `
+            <tr>
+                    <td>${dan.name}</td>    
+                    <td>${dan.password}</td>    
+                    <td>${dan.gender}</td>    
+                    <td>${dan.email}</td>    
+                    <td>${dan.paid}</td>    
+                </tr>
+                `
+        }
+    }
+
+    function PaidUser(){
+        dispContent.innerHTML = ""
+        for (let i = 0; i< user.length; i++){
+            const element = user[i]
+            if (element.paid == true){
+                dispContent.innerHTML += `
+            <tr>
+                    <td>${element.name}</td>    
+                    <td>${element.password}</td>    
+                    <td>${element.gender}</td>    
+                    <td>${element.email}</td>    
+                    <td>${element.paid}</td>    
+                </tr>
+                `
+            }
+        }
+    }
+
+    function notpaiduser(){
+        dispContent.innerHTML = ""
+        for (let i = 0; i< user.length; i++){
+            const element = user[i]
+            if (element.paid == false){
+                dispContent.innerHTML += `
+            <tr>
+                    <td>${element.name}</td>    
+                    <td>${element.password}</td>    
+                    <td>${element.gender}</td>    
+                    <td>${element.email}</td>    
+                    <td>${element.paid}</td>    
+                </tr>
+                `
+            }
+        }
+    }
+
+
+</script>
+</html>
